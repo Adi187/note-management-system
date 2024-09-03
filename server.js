@@ -23,7 +23,7 @@ sequelize.authenticate()
   .then(() => console.log('Database connected...'))
   .catch(err => console.log('Error: ' + err));
 
-// Initialize session middleware
+
 const secret = crypto.randomBytes(64).toString('hex');// Generate a random secret-key
 
 app.use(session({
