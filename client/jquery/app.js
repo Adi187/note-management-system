@@ -141,6 +141,22 @@ $(document).ready(function() {
         fetchNotes();  // Load notes on page load
     }
 
+    function registerUser(username, password) {
+        $.ajax({
+            url: '/auth/register',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ username, password }),
+            success: function(response) {
+                alert('Registration successful!');
+                showLoginForm(); // Redirect to login form after successful registration
+            },
+            error: function() {
+                alert('Registration failed. Please try again.');
+            }
+        });
+    }
+    
     function createNote(title, content) {
         $.ajax({
             url: '/notes/create',
