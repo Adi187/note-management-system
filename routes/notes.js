@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Note, User } = require('../models');
 
-// Middleware to authenticate the user (assuming you have session or JWT setup)
+
 function authenticate(req, res, next) {
   console.log('Session:', req.session); // Check session object
   console.log('User ID in Session:', req.session.userId); // Check user ID in session
@@ -29,7 +29,7 @@ function authenticate(req, res, next) {
 router.post('/create', authenticate, async (req, res) => {
   const { title, content } = req.body;
   console.log(req.user)
-  // Assume user ID is obtained from authenticated session
+
   const userId = req.user.id;
 
   try {
